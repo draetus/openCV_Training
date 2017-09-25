@@ -1,1 +1,1 @@
-# openCV_Training
+Just learning OpenCV
