@@ -1,5 +1,0 @@
-PROJECT( load_video_proj )
-FIND_PACKAGE( OpenCV REQUIRED )
-ADD_EXECUTABLE( a.out load_video.cpp )
-TARGET_LINK_LIBRARIES ( a.out ${OpenCV_LIBS} )
-set( CMAKE_EXPORT_COMPILE_COMMANDS ON )

@@ -1,5 +1,0 @@
-PROJECT( general_tests_proj )
-FIND_PACKAGE( OpenCV REQUIRED )
-ADD_EXECUTABLE( a.out general_tests.cpp )
-TARGET_LINK_LIBRARIES ( a.out ${OpenCV_LIBS} )
-set( CMAKE_EXPORT_COMPILE_COMMANDS ON )
