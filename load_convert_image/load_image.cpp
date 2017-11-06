@@ -5,7 +5,7 @@ int main()
 {
     //carregando imagem
     cv::Mat image;
-    image = cv::imread("lena.jpg", CV_LOAD_IMAGE_COLOR);
+    image = cv::imread("../data/lena.jpg", CV_LOAD_IMAGE_COLOR);
 
     //salvando imagem
     cv::imwrite("processed.png", image);

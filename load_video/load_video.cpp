@@ -4,7 +4,7 @@
 int main()
 {
     cv::Mat image;
-    cv::VideoCapture cap("sample.avi");
+    cv::VideoCapture cap("../data/sample.avi");
 
     cv::namedWindow("Video", 1);
     while(true)
