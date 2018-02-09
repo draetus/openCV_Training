@@ -24,6 +24,7 @@ int main(int argc, char** argv)
     }
 
     cv::cvtColor(original_image, gray_image, cv::COLOR_BGR2GRAY);
+    LBP_image = gray_image.clone();
 
     int pixelValue = 0;
 
