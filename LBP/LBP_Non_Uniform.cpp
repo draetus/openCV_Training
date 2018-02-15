@@ -28,15 +28,15 @@ int main(int argc, char** argv)
 
     int pixelValue = 0;
 
-    cv::namedWindow("Modified Pixel in Image", cv::WINDOW_AUTOSIZE);
-    cv::imshow("Modified Pixel In Image", original_image);
+    cv::namedWindow("LBP Image", cv::WINDOW_AUTOSIZE);
+    cv::imshow("LBP Image", original_image);
     cv::waitKeyEx(0);
    
     for (int i=1; i<original_image.rows; i++)
     {
         for (int j=1; j<original_image.cols; j++)
         {
-            std::cout << "Column: " << i << "Row: " << j << std::endl;
+            //std::cout << "Column: " << i << "Row: " << j << std::endl;
 
             pixelValue += (gray_image.at<uchar>(i-1,j-1) <= gray_image.at<uchar>(i,j)) ? 1 : 0;
             pixelValue += (gray_image.at<uchar>(i-1,j) <= gray_image.at<uchar>(i,j)) ? 2 : 0;
@@ -51,14 +51,42 @@ int main(int argc, char** argv)
             LBP_image.at<uchar>(i,j) = pixelValue;
             pixelValue = 0;
         }
-        cv::imshow("Modified Pixel In Image", LBP_image);
+        cv::imshow("LBP Image", LBP_image);
         cv::waitKeyEx(1);
 
     }
     std::cout << pixelValue;
     
-    cv::imshow("Modified Pixel In Image", LBP_image);
+    cv::imshow("LBP Image", LBP_image);
     cv::waitKeyEx(0);
+
+    original_image.release();
+    gray_image.release();
+
+
+    int apparitions[256] = {0};
+
+    for (int i=1; i<LBP_image.rows; i++)
+    {
+        for (int j=1; j<LBP_image.cols; j++)
+        {
+            for (int k=0; k<256; k++)
+            {
+                if (LBP_image.at<uchar>(i,j) == k)
+                {
+                    apparitions[k]++;
+                }
+            }
+        }
+    }
+
+
+    for (int i=0; i<256 ; i++)
+    {
+        std::cout << "Case " << i << ": " << apparitions[i] << std::endl;
+    }
+
+    LBP_image.release();
 
     return 0;
 }
