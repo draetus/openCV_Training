@@ -6,7 +6,7 @@ int main(int argc, char** argv)
 {
     if ( argc != 2 )
     {
-        std::cout << "Usage: ./mod_pix_val <Image_Path>\n";
+        std::cout << "Usage: ./LBP_Uniform <Image_Path>\n";
         return -1;
     }
 
