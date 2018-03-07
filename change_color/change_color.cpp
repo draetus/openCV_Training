@@ -6,7 +6,7 @@ int main(int argc, char** argv)
 {
     if ( argc != 3 )
     {
-        std::cout << "Usage: ./test <Image_Path> (b(lue)/g(reen)/r(ed))\n";
+        std::cout << "Usage: ./change_color <Image_Path> (b(lue)/g(reen)/r(ed))\n";
         return -1;
     }
 

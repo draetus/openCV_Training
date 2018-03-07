@@ -1,11 +1,17 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
-int main()
+int main(int argc, char** argv)
 {
+	if ( argc != 2 )
+	{
+		printf("Usage: ./load_image <Image_Path>\n");
+		return -1;
+	}
+
     cv::Mat image, gray;
 
-    image = cv::imread("../data/lena.jpg", CV_LOAD_IMAGE_COLOR);
+    image = cv::imread(argv[1], CV_LOAD_IMAGE_COLOR);
 
     //converte para escala de cinza
     cv::cvtColor( image, gray, CV_BGR2GRAY );

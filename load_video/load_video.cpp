@@ -1,10 +1,16 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <iostream>
 
-int main()
+int main(int argc, char** argv)
 {
+	if ( argc != 2 )
+	{
+		printf("Usage: ./load_video <Image_Path>\n");
+		return -1;
+	}
+
     cv::Mat image;
-    cv::VideoCapture cap("../data/sample.avi");
+    cv::VideoCapture cap(argv[1]);
 
     cv::namedWindow("Video", 1);
     while(true)
